@@ -23,6 +23,5 @@ public class Aiming : MonoBehaviour
         Vector2 lookDir = new Vector2(mousePos.x - transform.position.x, mousePos.y - transform.position.y);
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
-        Debug.Log("lookdir :" + lookDir);
     }
 }
