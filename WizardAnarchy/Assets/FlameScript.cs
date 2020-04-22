@@ -11,6 +11,10 @@ public class FlameScript : MonoBehaviour
             Debug.Log("Entered a trigger");
             DestroyProjectile();
         }
+        if(col.CompareTag("Wall") || col.CompareTag("Player"))
+        {
+            DestroyProjectile();
+        }
     }
 
     private void DestroyProjectile()
