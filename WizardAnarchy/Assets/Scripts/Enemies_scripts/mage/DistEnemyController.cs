@@ -7,15 +7,17 @@ public class DistEnemyController : MonoBehaviour
     public Rigidbody2D rb2D;
     public Transform target;
     public float moveSpeed;
-    public float aggroRange;
+    public float stoppingDistance;
+    public float retreatDistance;
     private Vector2 movePos;
-    // Start is called before the first frame update
+    private float moveTimer;
+    public float startMoveTimer;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(target)
@@ -30,18 +32,25 @@ public class DistEnemyController : MonoBehaviour
     }
 
     private void MoveEnemy()
-    {   
-        if(Vector2.Distance(target.position, transform.position) == aggroRange)
+    {
+        if(Vector2.Distance(target.position, transform.position) > stoppingDistance && moveTimer <= 0)
+        {
+            rb2D.velocity = movePos;
+            moveTimer = startMoveTimer;
+        }
+        if(Vector2.Distance(target.position, transform.position) < stoppingDistance && Vector2.Distance(target.position, transform.position) > retreatDistance && moveTimer <= 0)
         {
             rb2D.velocity = new Vector2(0, 0);
+            moveTimer = startMoveTimer;
         }
-        if(Vector2.Distance(target.position, transform.position) > aggroRange)
+        else if(Vector2.Distance(target.position, transform.position) < retreatDistance && moveTimer <= 0)
         {
-            rb2D.velocity = movePos * moveSpeed;
+            rb2D.velocity = -movePos;
+            moveTimer = startMoveTimer;
         }
-        if(Vector2.Distance(target.position, transform.position) < aggroRange)
+        else if(moveTimer > 0)
         {
-            rb2D.velocity = -movePos * moveSpeed;
+            moveTimer -= Time.deltaTime;
         }
     }
 }
