@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public float BASE_MOVE_SPEED;
     public Vector2 moveInput;
+    private Vector2 movePos;
     public Rigidbody2D rb2D;
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,8 @@ public class PlayerController : MonoBehaviour
         {
             moveInput.x = Input.GetAxisRaw("Horizontal");
             moveInput.y = Input.GetAxisRaw("Vertical");
+
+            
         }
     }
 
