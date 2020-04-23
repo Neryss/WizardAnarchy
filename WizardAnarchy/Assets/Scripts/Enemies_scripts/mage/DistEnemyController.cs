@@ -33,24 +33,24 @@ public class DistEnemyController : MonoBehaviour
 
     private void MoveEnemy()
     {
-        if(Vector2.Distance(target.position, transform.position) > stoppingDistance && moveTimer <= 0)
+        if(Vector2.Distance(target.position, transform.position) > stoppingDistance)
         {
-            rb2D.velocity = movePos;
-            moveTimer = startMoveTimer;
+            rb2D.MovePosition(rb2D.position + movePos * moveSpeed * Time.deltaTime);
+        //    moveTimer = startMoveTimer;
         }
-        if(Vector2.Distance(target.position, transform.position) < stoppingDistance && Vector2.Distance(target.position, transform.position) > retreatDistance && moveTimer <= 0)
+        if(Vector2.Distance(target.position, transform.position) < stoppingDistance && Vector2.Distance(target.position, transform.position) > retreatDistance)
         {
-            rb2D.velocity = new Vector2(0, 0);
-            moveTimer = startMoveTimer;
+            rb2D.position = rb2D.position;
+        //    moveTimer = startMoveTimer;
         }
-        else if(Vector2.Distance(target.position, transform.position) < retreatDistance && moveTimer <= 0)
+        else if(Vector2.Distance(target.position, transform.position) < retreatDistance)
         {
-            rb2D.velocity = -movePos;
-            moveTimer = startMoveTimer;
+            rb2D.MovePosition(rb2D.position + movePos * -moveSpeed * Time.deltaTime);
+        //    moveTimer = startMoveTimer;
         }
-        else if(moveTimer > 0)
-        {
-            moveTimer -= Time.deltaTime;
-        }
+        //else if(moveTimer > 0)
+        //{
+        //    moveTimer -= Time.deltaTime;
+        //}
     }
 }
