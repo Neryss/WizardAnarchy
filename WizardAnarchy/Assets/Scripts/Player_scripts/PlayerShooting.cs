@@ -7,7 +7,7 @@ public class PlayerShooting : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
     public float bulletForce;
-    public Rigidbody2D bulletRb;
+    private Rigidbody2D bulletRb;
     // Start is called before the first frame update
     void Start()
     {
