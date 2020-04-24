@@ -6,7 +6,6 @@ public class enemy_hexball : MonoBehaviour
 {
     public PlayerHealth pHealth;
     public int damage;
-
     void OnTriggerEnter2D(Collider2D col)
     {
         if(col.CompareTag("Player"))
