@@ -6,7 +6,7 @@ public class PlayerStats : MonoBehaviour
 {
     public int maxHealth;
     public int health;
-    public EnemyHealth eHealth;
+    private EnemyHealth eHealth;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +16,14 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        eHealth = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyHealth>();
+        if(eHealth != null)
+        {
+            Debug.Log("Ehealth");
+        }
         if(health <= 0)
         {
-            eHealth.Kill(this.gameObject);
+            
         }
     }
 
