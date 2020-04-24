@@ -6,7 +6,7 @@ public class PlayerStats : MonoBehaviour
 {
     public int maxHealth;
     public int health;
-    public EnemyHealth enemyHealth;
+    public EnemyHealth eHealth;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +18,7 @@ public class PlayerStats : MonoBehaviour
     {
         if(health <= 0)
         {
-            enemyHealth.Kill(gameObject);
+            eHealth.Kill(this.gameObject);
         }
     }
 
