@@ -104,7 +104,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!68 &7695802366758761801
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -142,5 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb2D: {fileID: 7695802366758761805}
   target: {fileID: 0}
-  moveSpeed: 2
-  aggroRange: 1
+  moveSpeed: 3
+  stoppingDistance: 3
+  retreatDistance: 1.5
+  startMoveTimer: 1
