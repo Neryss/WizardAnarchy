@@ -33,7 +33,7 @@ public class SlimeController : MonoBehaviour
     {
         if(Vector2.Distance(transform.position, target.position) >= range)
         {
-            slimeRB.MovePosition(slimeRB.position + direction * speed * Time.deltaTime);
+            slimeRB.velocity = direction.normalized * speed;
         }
     }
 }
