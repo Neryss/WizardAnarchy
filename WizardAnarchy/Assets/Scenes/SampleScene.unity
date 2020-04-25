@@ -3898,6 +3898,80 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   health: 0
+--- !u!1001 &797494489993466479
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 797494489762401352, guid: 952285cbbf4b8464680c8b31978064d2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 797494489762401352, guid: 952285cbbf4b8464680c8b31978064d2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 797494489762401352, guid: 952285cbbf4b8464680c8b31978064d2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 797494489762401352, guid: 952285cbbf4b8464680c8b31978064d2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 797494489762401352, guid: 952285cbbf4b8464680c8b31978064d2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 797494489762401352, guid: 952285cbbf4b8464680c8b31978064d2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 797494489762401352, guid: 952285cbbf4b8464680c8b31978064d2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 797494489762401352, guid: 952285cbbf4b8464680c8b31978064d2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 797494489762401352, guid: 952285cbbf4b8464680c8b31978064d2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 797494489762401352, guid: 952285cbbf4b8464680c8b31978064d2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 797494489762401352, guid: 952285cbbf4b8464680c8b31978064d2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 797494489762401354, guid: 952285cbbf4b8464680c8b31978064d2,
+        type: 3}
+      propertyPath: m_Name
+      value: SlimeEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5067087327496904226, guid: 952285cbbf4b8464680c8b31978064d2,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 137862113}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 952285cbbf4b8464680c8b31978064d2, type: 3}
 --- !u!1001 &1938879652759505114
 PrefabInstance:
   m_ObjectHideFlags: 0
