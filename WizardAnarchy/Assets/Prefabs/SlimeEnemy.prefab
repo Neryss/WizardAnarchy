@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 797494489762401353}
   - component: {fileID: 2124279120206874774}
   - component: {fileID: 4268181233062241713}
+  - component: {fileID: 5067087327496904226}
+  - component: {fileID: 5744377881209197836}
   m_Layer: 0
   m_Name: SlimeEnemy
   m_TagString: Untagged
@@ -133,3 +135,33 @@ EdgeCollider2D:
   - {x: -0.36809033, y: -0.18594944}
   - {x: -0.30060965, y: -0.24404442}
   - {x: 0.24917579, y: -0.2440444}
+--- !u!114 &5067087327496904226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797494489762401354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3e39a27875a7d2488460360361c332e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  range: 0.5
+  target: {fileID: 0}
+  slimeRB: {fileID: 2124279120206874774}
+--- !u!114 &5744377881209197836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797494489762401354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0799279a8ac00d74a916da67a90b7957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 2
+  health: 0
