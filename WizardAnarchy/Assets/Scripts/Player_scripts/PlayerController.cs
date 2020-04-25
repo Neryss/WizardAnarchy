@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public Aiming aiming;
     public float BASE_MOVE_SPEED;
     public Vector2 moveInput;
     public Animator animator;
     public Rigidbody2D rb2D;
+    private Vector2 mouseDiff;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,12 +31,18 @@ public class PlayerController : MonoBehaviour
         {
             moveInput.x = Input.GetAxisRaw("Horizontal");
             moveInput.y = Input.GetAxisRaw("Vertical");
-            animator.SetFloat("speed", moveInput.x);
+            MousePlayerDiff();
         }
     }
 
     private void MovePlayer()
     {
         rb2D.velocity = new Vector2(moveInput.x * BASE_MOVE_SPEED, moveInput.y * BASE_MOVE_SPEED);
+    }
+
+    private void MousePlayerDiff()
+    {
+        mouseDiff = new Vector2(aiming.mousePos.x - transform.position.x, 0);
+        animator.SetFloat("orientation", mouseDiff.x);
     }
 }

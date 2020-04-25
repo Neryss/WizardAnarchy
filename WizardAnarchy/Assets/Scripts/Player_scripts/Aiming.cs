@@ -5,7 +5,7 @@ using UnityEngine;
 public class Aiming : MonoBehaviour
 {
     public Camera cam;
-    private Vector2 mousePos;
+    public Vector2 mousePos;
     // Start is called before the first frame update
     void Start()
     {
