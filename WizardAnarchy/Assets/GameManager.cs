@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public float restartTimer;
     bool gameOver = false;
     public void GameOver()
     {
@@ -12,7 +13,7 @@ public class GameManager : MonoBehaviour
         {
             gameOver = true;
             Debug.Log("Scene restarted");
-            RestartStage();
+            Invoke("RestartStage", restartTimer);
         }
     }
 
