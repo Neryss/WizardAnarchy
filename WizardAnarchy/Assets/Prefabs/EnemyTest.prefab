@@ -74,6 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21b9ffe36265e524d8d7dab6b9860add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mageController: {fileID: 7695802366758761806}
   target: {fileID: 0}
 --- !u!1 &7695802366758761802
 GameObject:

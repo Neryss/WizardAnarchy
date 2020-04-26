@@ -13,9 +13,13 @@ public class DistEnemyController : MonoBehaviour
     private float moveTimer;
     public float startMoveTimer;
 
-    void Start()
+    void Awake()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+    }
+    void Start()
+    {
+        
     }
 
     void Update()

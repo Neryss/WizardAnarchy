@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class MageAiming : MonoBehaviour
 {
+    public DistEnemyController mageController;
     public Transform target;
     // Start is called before the first frame update
     void Start()
     {
-        
+        target = mageController.target;
     }
 
     // Update is called once per frame

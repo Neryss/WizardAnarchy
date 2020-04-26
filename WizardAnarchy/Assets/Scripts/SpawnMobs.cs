@@ -17,6 +17,7 @@ public class SpawnMobs : MonoBehaviour
     void Start()
     {
         SpawnMobFromArray();
+        Debug.Log(spawn1.position);
     }
 
     // Update is called once per frame
