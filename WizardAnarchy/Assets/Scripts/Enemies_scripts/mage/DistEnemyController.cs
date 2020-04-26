@@ -15,7 +15,7 @@ public class DistEnemyController : MonoBehaviour
 
     void Start()
     {
-        
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     void Update()
