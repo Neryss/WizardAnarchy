@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnMobs : MonoBehaviour
 {
     public GameObject[] mobs;
-    public float SpawnCd;
+    public float spawnCd;
     private float spawnTimer;
     public Vector3 spawnArea;
     private Vector3 size;
@@ -17,18 +17,20 @@ public class SpawnMobs : MonoBehaviour
     void Start()
     {
         spawnArea = new Vector3(spawn2.position.x, spawn3.position.y, 0);
-        SpawnMobFromArray();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = new Color(1, 0, 0, 0.5f);
+        if(spawnTimer <= 0)
+        {
+            spawnTimer = spawnCd;
+            SpawnMobFromArray();
+        }
+        else
+        {
+            spawnTimer -= Time.deltaTime;
+        }
     }
 
     private void SpawnMobFromArray()

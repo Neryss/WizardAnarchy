@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public GameManager gameManager;
     public int maxHealth;
     public int health;
     public EnemyHealth eHealth;
@@ -19,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
         if(health <= 0)
         {
             eHealth.KillEntity(gameObject);
+            gameManager.GameOver();
         }
     }
 

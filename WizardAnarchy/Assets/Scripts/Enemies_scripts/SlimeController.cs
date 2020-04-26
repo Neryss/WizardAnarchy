@@ -26,7 +26,10 @@ public class SlimeController : MonoBehaviour
 
     void FixedUpdate()
     {
-        direction = target.position - transform.position;
+        if(target)
+        {
+            direction = target.position - transform.position;
+        }
     }
 
     private void SlimeMove()

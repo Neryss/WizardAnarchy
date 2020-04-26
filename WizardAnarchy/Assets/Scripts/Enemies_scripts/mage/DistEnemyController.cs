@@ -32,7 +32,10 @@ public class DistEnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
-        movePos = target.position - transform.position;
+        if(target)
+        {
+            movePos = target.position - transform.position;
+        }
     }
 
     private void MoveEnemy()
