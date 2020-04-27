@@ -13,7 +13,7 @@ public class enemy_mage_firing : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        cdCount = fireCd;
     }
 
     // Update is called once per frame
