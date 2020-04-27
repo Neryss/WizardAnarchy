@@ -5847,6 +5847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f7fd55025aa9b7448d1348a334091f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  restartTimer: 1.5
 --- !u!4 &691853545
 Transform:
   m_ObjectHideFlags: 0
