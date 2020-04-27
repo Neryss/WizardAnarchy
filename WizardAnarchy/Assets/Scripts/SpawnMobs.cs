@@ -9,6 +9,8 @@ public class SpawnMobs : MonoBehaviour
     private float spawnTimer;
     private Vector3 spawnArea;
     private Vector3 size;
+    private Vector3 randomPos;
+    private int randomEnemy;
     public GameObject spawnEffect;
     [Header("Spawn Markers")]
     public Transform spawn1;
@@ -37,16 +39,21 @@ public class SpawnMobs : MonoBehaviour
 
     private void SpawnMobFromArray()
     {
-        Vector3 randomPos = RandomRangeVector3(spawn1.position, spawnArea);
-        int randomEnemy = Random.Range(0, mobs.Length);
+        randomPos = RandomRangeVector3(spawn1.position, spawnArea);
+        randomEnemy = Random.Range(0, mobs.Length);
         GameObject tempSpawnEffect = Instantiate(spawnEffect, randomPos, Quaternion.identity);
-        Instantiate(mobs[randomEnemy], randomPos, Quaternion.identity);
-        Destroy(tempSpawnEffect, 5);
+        Invoke("InstantiateMob", 4);
+        Destroy(tempSpawnEffect, 3);
     }
 
     public Vector3 RandomRangeVector3(Vector3 min, Vector3 max)
     {
         Vector3 res = new Vector3(Random.Range(min.x, max.x), Random.Range(min.y, max.y), Random.Range(min.z, min.z));
         return (res);
+    }
+
+    private void InstantiateMob()
+    {
+        Instantiate(mobs[randomEnemy], randomPos, Quaternion.identity);
     }
 }
