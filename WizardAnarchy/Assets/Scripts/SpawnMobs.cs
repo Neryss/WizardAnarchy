@@ -7,8 +7,9 @@ public class SpawnMobs : MonoBehaviour
     public GameObject[] mobs;
     public float spawnCd;
     private float spawnTimer;
-    public Vector3 spawnArea;
+    private Vector3 spawnArea;
     private Vector3 size;
+    public GameObject spawnEffect;
     [Header("Spawn Markers")]
     public Transform spawn1;
     public Transform spawn2;
@@ -17,6 +18,7 @@ public class SpawnMobs : MonoBehaviour
     void Start()
     {
         spawnArea = new Vector3(spawn2.position.x, spawn3.position.y, 0);
+        spawnTimer = spawnCd;
     }
 
     // Update is called once per frame
@@ -37,7 +39,9 @@ public class SpawnMobs : MonoBehaviour
     {
         Vector3 randomPos = RandomRangeVector3(spawn1.position, spawnArea);
         int randomEnemy = Random.Range(0, mobs.Length);
+        GameObject tempSpawnEffect = Instantiate(spawnEffect, randomPos, Quaternion.identity);
         Instantiate(mobs[randomEnemy], randomPos, Quaternion.identity);
+        Destroy(tempSpawnEffect, 5);
     }
 
     public Vector3 RandomRangeVector3(Vector3 min, Vector3 max)
