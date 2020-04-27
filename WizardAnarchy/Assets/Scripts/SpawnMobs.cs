@@ -40,11 +40,12 @@ public class SpawnMobs : MonoBehaviour
     //looks really shitty af but it gets the work done for now
     private void SpawnMobFromArray()
     {
+        Debug.Log("Spawn ft in");
         randomPos = RandomRangeVector3(spawn1.position, spawnArea);
         randomEnemy = Random.Range(0, mobs.Length);
         GameObject tempSpawnEffect = Instantiate(spawnEffect, randomPos, Quaternion.identity);      // I fear no man
-        Invoke("InstantiateMob", 4);                                                                // But this..
-        Destroy(tempSpawnEffect, 3);                                                                // It scares me..
+        Invoke("InstantiateMob", 6);                                                                // But this..
+        Destroy(tempSpawnEffect, 6);                                                                // It scares me..
     }
 
     public Vector3 RandomRangeVector3(Vector3 min, Vector3 max)
@@ -56,5 +57,6 @@ public class SpawnMobs : MonoBehaviour
     private void InstantiateMob()
     {
         Instantiate(mobs[randomEnemy], randomPos, Quaternion.identity);
+        Debug.Log("Instantiate");
     }
 }
