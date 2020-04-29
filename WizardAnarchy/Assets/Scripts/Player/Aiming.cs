@@ -6,6 +6,7 @@ public class Aiming : MonoBehaviour
 {
     public Camera cam;
     public Vector2 mousePos;
+    public float fireAngle;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,7 @@ public class Aiming : MonoBehaviour
     void Update()
     {
         Vector2 lookDir = new Vector2(mousePos.x - transform.position.x, mousePos.y - transform.position.y);
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+        fireAngle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, fireAngle);
     }
 }
