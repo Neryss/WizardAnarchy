@@ -13,12 +13,12 @@ public class FlameScript : MonoBehaviour
     public int damage;
     void Start()
     {
-        pShooting = gameObject.GetComponent<PlayerShooting>();
-        aimingScript = gameObject.GetComponent<Aiming>();
-        angle = aimingScript.fireAngle;
-        print(angle);
+        pShooting = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShooting>();
+        aimingScript = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Aiming>();
+        //angle = aimingScript.fireAngle;
+        //need to reference the rotation of the chil rotationPoint so I can apply it to the effect
         firePoint = pShooting.firePoint.transform;
-        Instantiate(muzzleEffect, firePoint.position, Quaternion.Euler(0, 0, angle));
+        Instantiate(muzzleEffect, firePoint.position, Quaternion.Euler(angle, 0, 0));
     }
     void OnTriggerEnter2D(Collider2D col)
     {
