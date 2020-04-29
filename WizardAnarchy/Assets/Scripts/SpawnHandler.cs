@@ -11,6 +11,7 @@ public class SpawnHandler : MonoBehaviour
     private Vector3 size;
     private Vector3 randomPos;
     private int randomEnemy;
+    public bool isOn;
     //public GameObject spawnEffect;
     [Header("Spawn Markers")]
     public Transform spawn1;
@@ -26,14 +27,17 @@ public class SpawnHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(spawnTimer <= 0)
+        if(isOn)
         {
-            spawnTimer = spawnCd;
-            SpawnMobFromArray();
-        }
-        else
-        {
-            spawnTimer -= Time.deltaTime;
+            if(spawnTimer <= 0)
+            {
+                spawnTimer = spawnCd;
+                SpawnMobFromArray();
+            }
+            else
+            {
+                spawnTimer -= Time.deltaTime;
+            }
         }
     }
 
