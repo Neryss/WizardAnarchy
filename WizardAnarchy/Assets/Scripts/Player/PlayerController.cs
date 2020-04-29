@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public Rigidbody2D rb2D;
     private Vector2 mouseDiff;
+
     // Start is called before the first frame update
     void Start()
     {

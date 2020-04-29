@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerShooting : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    public GameObject fireMuzzle;
     public Transform firePoint;
     public float bulletForce;
     private Rigidbody2D bulletRb;
@@ -26,10 +25,8 @@ public class PlayerShooting : MonoBehaviour
 
     private void PlayerShot()
     {
-        GameObject tempMuzzle = Instantiate(fireMuzzle, firePoint.position, Quaternion.identity);
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         bulletRb = bullet.GetComponent<Rigidbody2D>();
         bulletRb.AddForce(firePoint.right * bulletForce, ForceMode2D.Impulse);
-        Destroy(tempMuzzle, 2);
     }
 }
