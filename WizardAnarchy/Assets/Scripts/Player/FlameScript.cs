@@ -13,7 +13,7 @@ public class FlameScript : MonoBehaviour
     {
         pShooting = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShooting>();
         firePoint = pShooting.firePoint.transform;
-        Instantiate(muzzleEffect, firePoint.position, Quaternion.identity);
+        Instantiate(muzzleEffect, firePoint.position, Quaternion.Euler(90, 0, 0));
     }
     void OnTriggerEnter2D(Collider2D col)
     {
