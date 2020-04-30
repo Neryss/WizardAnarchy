@@ -7474,11 +7474,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlameMuzzle
       objectReference: {fileID: 0}
-    - target: {fileID: 3491288117778828813, guid: b1f33c62a7fdc5f4f83fa0ccecd2a2c0,
-        type: 3}
-      propertyPath: moveWithTransform
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7448585393260363853, guid: b1f33c62a7fdc5f4f83fa0ccecd2a2c0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7497,22 +7492,22 @@ PrefabInstance:
     - target: {fileID: 7448585393260363853, guid: b1f33c62a7fdc5f4f83fa0ccecd2a2c0,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.5
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 7448585393260363853, guid: b1f33c62a7fdc5f4f83fa0ccecd2a2c0,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7448585393260363853, guid: b1f33c62a7fdc5f4f83fa0ccecd2a2c0,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.5
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 7448585393260363853, guid: b1f33c62a7fdc5f4f83fa0ccecd2a2c0,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7448585393260363853, guid: b1f33c62a7fdc5f4f83fa0ccecd2a2c0,
         type: 3}
@@ -7532,7 +7527,7 @@ PrefabInstance:
     - target: {fileID: 7448585393260363853, guid: b1f33c62a7fdc5f4f83fa0ccecd2a2c0,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1f33c62a7fdc5f4f83fa0ccecd2a2c0, type: 3}
@@ -7616,6 +7611,11 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 383130181, guid: 7de68c357bbe91a42ae2eeee68acea49, type: 3}
+      propertyPath: crosshair
+      value: 
+      objectReference: {fileID: 6432788930489932968, guid: 032295df8421a394aa3c81b784da904a,
+        type: 3}
     - target: {fileID: 566530962, guid: 7de68c357bbe91a42ae2eeee68acea49, type: 3}
       propertyPath: gameManager
       value: 
