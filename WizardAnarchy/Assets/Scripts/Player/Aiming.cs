@@ -12,6 +12,7 @@ public class Aiming : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = false;
         crosshairInstance = Instantiate(crosshair, new Vector3(0, 0, 0), Quaternion.identity);
     }
 

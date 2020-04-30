@@ -8,9 +8,11 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth;
     public int health;
     public EnemyHealth eHealth;
+    public bool alive;
     // Start is called before the first frame update
     void Start()
     {
+        alive = true;
         health = maxHealth;
     }
 
@@ -19,6 +21,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if(health <= 0)
         {
+            alive = false;
             eHealth.KillEntity(gameObject);
             gameManager.GameOver();
         }
