@@ -18,9 +18,10 @@ public class FlameScript : MonoBehaviour
         pShooting = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShooting>();
         rotationTrans = GameObject.FindGameObjectWithTag("Player").transform.GetChild(0);
         //need to reference the rotation of the chil rotationPoint so I can apply it to the effect
-        print(rotationTrans.rotation);
+        //Not getting the wanted rotation (got the z since it's the only one changing on the rotation point so doesn't work)
+        print(rotationTrans.transform.rotation.z);
         firePoint = pShooting.firePoint.transform;
-        Instantiate(muzzleEffect, firePoint.position, Quaternion.Euler(rotationTrans.transform.rotation.x, rotationTrans.transform.rotation.y, rotationTrans.transform.rotation.z));
+        Instantiate(muzzleEffect, firePoint.position + new Vector3(0, 0, -1), Quaternion.Euler(rotationTrans.rotation.x, rotationTrans.transform.rotation.y, rotationTrans.transform.rotation.z));
     }
     void OnTriggerEnter2D(Collider2D col)
     {
