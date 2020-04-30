@@ -5,6 +5,8 @@ using UnityEngine;
 public class FlameScript : MonoBehaviour
 {
     public PlayerShooting pShooting;
+    public Transform rotationTrans;
+    public GameObject playerGO;
     public Aiming aimingScript;
     public Transform firePoint;
     public float angle;
@@ -14,11 +16,11 @@ public class FlameScript : MonoBehaviour
     void Start()
     {
         pShooting = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShooting>();
-        aimingScript = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Aiming>();
-        //angle = aimingScript.fireAngle;
+        rotationTrans = GameObject.FindGameObjectWithTag("Player").transform.GetChild(0);
         //need to reference the rotation of the chil rotationPoint so I can apply it to the effect
+        print(rotationTrans.rotation);
         firePoint = pShooting.firePoint.transform;
-        Instantiate(muzzleEffect, firePoint.position, Quaternion.Euler(angle, 0, 0));
+        Instantiate(muzzleEffect, firePoint.position, Quaternion.Euler(rotationTrans.transform.rotation.x, rotationTrans.transform.rotation.y, rotationTrans.transform.rotation.z));
     }
     void OnTriggerEnter2D(Collider2D col)
     {
