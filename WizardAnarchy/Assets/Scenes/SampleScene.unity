@@ -5550,6 +5550,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5577,7 +5578,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09dcf0cf7b4aed04cbd8051b1bb5d41f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeLength: 0
+  shakeDuration: 0
+  shakeDurationCount: 0
+  shakePower: 0
+  rotation: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -5635,6 +5639,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9daf9526a8a9d094baed324853fba1b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1652602158}
+  offset: {x: 0, y: 0, z: -10}
 --- !u!114 &519614543 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7184277533779596655, guid: 95f53813a859f024e9393bb1d8c5d28c,
@@ -6754,6 +6772,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1652602158 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8415454579320974036, guid: 7de68c357bbe91a42ae2eeee68acea49,
+    type: 3}
+  m_PrefabInstance: {fileID: 8341627957949359918}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1730780758
 GameObject:
   m_ObjectHideFlags: 0
@@ -7487,11 +7511,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FlameMuzzle
-      objectReference: {fileID: 0}
-    - target: {fileID: 3491288117778828813, guid: b1f33c62a7fdc5f4f83fa0ccecd2a2c0,
-        type: 3}
-      propertyPath: moveWithTransform
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7448585393260363853, guid: b1f33c62a7fdc5f4f83fa0ccecd2a2c0,
         type: 3}
