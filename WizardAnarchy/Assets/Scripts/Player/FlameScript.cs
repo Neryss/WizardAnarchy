@@ -35,11 +35,12 @@ public class FlameScript : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void SpawnMuzzle()
+    public void SpawnMuzzle()
     {
         pShooting = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShooting>();
         rotationTrans = GameObject.FindGameObjectWithTag("Player").transform.GetChild(0);
         firePoint = pShooting.firePoint.transform;
-        Instantiate(muzzleEffect, firePoint.position + new Vector3(0, 0, -1), Quaternion.LookRotation(firePoint.position - rotationTrans.position));
+        GameObject tempEffect = Instantiate(muzzleEffect, firePoint.position + new Vector3(0, 0, -1), Quaternion.LookRotation(firePoint.position - rotationTrans.position));
+        Destroy(tempEffect, 1.2f);
     }
 }
