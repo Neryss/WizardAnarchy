@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShakeCameraController : MonoBehaviour
 {
-    public float shakeLength;
+    public float shakeDuration;
     // Start is called before the first frame update
     void Start()
     {

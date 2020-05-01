@@ -284,8 +284,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.5
-      minScalar: 0.1
+      scalar: 0.1
+      minScalar: 0.05
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -865,7 +865,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 150
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4730,7 +4730,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 15
+  m_SortingOrder: 11
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -4852,7 +4852,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pShooting: {fileID: 0}
+  rotationTrans: {fileID: 0}
+  playerGO: {fileID: 0}
+  aimingScript: {fileID: 0}
   firePoint: {fileID: 0}
+  angle: 0
   muzzleEffect: {fileID: 2024626625917063816, guid: b1f33c62a7fdc5f4f83fa0ccecd2a2c0,
     type: 3}
   enemyHealth: {fileID: 0}
