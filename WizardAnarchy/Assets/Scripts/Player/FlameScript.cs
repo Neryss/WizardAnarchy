@@ -13,10 +13,12 @@ public class FlameScript : MonoBehaviour
     public GameObject muzzleEffect;
     public EnemyHealth enemyHealth;
     public int damage;
+    private GameObject tempEffect;
     void Start()
     {
         SpawnMuzzle();
     }
+    
     void OnTriggerEnter2D(Collider2D col)
     {
         if(col.CompareTag("Enemy"))
@@ -40,7 +42,7 @@ public class FlameScript : MonoBehaviour
         pShooting = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShooting>();
         rotationTrans = GameObject.FindGameObjectWithTag("Player").transform.GetChild(0);
         firePoint = pShooting.firePoint.transform;
-        GameObject tempEffect = Instantiate(muzzleEffect, firePoint.position + new Vector3(0, 0, -1), Quaternion.LookRotation(firePoint.position - rotationTrans.position));
+        tempEffect = Instantiate(muzzleEffect, firePoint.position + new Vector3(0, 0, -1), Quaternion.LookRotation(firePoint.position - rotationTrans.position));
         Destroy(tempEffect, 1.2f);
     }
 }
