@@ -5,21 +5,16 @@ using UnityEngine;
 public class ShakeCameraController : MonoBehaviour
 {
     public float shakeDuration;
-    public float shakeDurationCount;    //set it to public for debugging
+    private float shakeDurationCount;    //set it to public for debugging
+    public float shakeFadeAway;
     public float shakePower;
     public float rotation;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if(Input.GetKeyDown("k"))
         {
-            StartShake(3f, 1f);
+            StartShake(.1f, .2f);
         }
     }
 
@@ -28,12 +23,11 @@ public class ShakeCameraController : MonoBehaviour
         if(shakeDurationCount > 0)
         {
             shakeDurationCount -= Time.deltaTime;
-
             float xAmount = Random.Range(-1f, 1f) * shakePower;
             float yAmount = Random.Range(-1f, 1f) * shakePower;
             //Can add another value for the zoom level and rotation
-
             transform.position += new Vector3(xAmount, yAmount, 0f);
+            shakePower = Mathf.MoveTowards(shakePower, 0f, shakeFadeAway * Time.deltaTime);
         }
     }
 
@@ -41,5 +35,6 @@ public class ShakeCameraController : MonoBehaviour
     {
         shakeDurationCount = duration;
         shakePower = power;
+        shakeFadeAway = power / duration;
     }
 }
