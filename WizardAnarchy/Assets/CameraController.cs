@@ -30,8 +30,8 @@ public class CameraController : MonoBehaviour
 
     private void FollowPlayer()
     {
-        center = (cursorInstance.transform.position + player.position) / 4;
-        transform.position = center + offset;
+        center = (cursorInstance.transform.position - player.position) / 5;
+        transform.position = player.position + center + offset;
     }
 
     private void MoveCursor()
