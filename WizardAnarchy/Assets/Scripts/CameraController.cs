@@ -20,13 +20,19 @@ public class CameraController : MonoBehaviour
 
     void FixedUpdate()
     {
-        FollowPlayer();
+        if(player)
+        {
+            FollowPlayer();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        MoveCursor();
+        if(player)
+        {
+            MoveCursor();
+        }
     }
 
     //also handle the transition for the camera movement

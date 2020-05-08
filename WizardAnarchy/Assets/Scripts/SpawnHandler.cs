@@ -34,25 +34,7 @@ public class SpawnHandler : MonoBehaviour
     {
         if(isOn)
         {
-            if(eCounter <= maxEntityPerWave)
-            {
-                if(spawnTimer <= 0)
-                {
-                    spawnTimer = spawnCd;
-                    SpawnMobFromArray();
-                    eCounter++;
-                }
-                else
-                {
-                    spawnTimer -= Time.deltaTime;
-                }
-            }
-            else if(eCounter > maxEntityPerWave)
-            {
-                eCounter = 0;
-                waveCounter++;
-                print("Wave counter: " + waveCounter);
-            }
+            WaveSpawn();
         }
     }
 
@@ -77,5 +59,29 @@ public class SpawnHandler : MonoBehaviour
     {
         Instantiate(mobs[randomEnemy], randomPos, Quaternion.identity);
         Debug.Log("Instantiate at " + randomPos);
+    }
+
+    private void WaveSpawn()
+    {
+        if(eCounter <= maxEntityPerWave)
+            {
+                if(spawnTimer <= 0)
+                {
+                    spawnTimer = spawnCd;
+                    SpawnMobFromArray();
+                    eCounter++;
+                }
+                else
+                {
+                    spawnTimer -= Time.deltaTime;
+                }
+            }
+        else if(eCounter > maxEntityPerWave)
+        {
+            eCounter = 0;
+            waveCounter++;
+            print("Wave counter: " + waveCounter);
+        }
+        
     }
 }
