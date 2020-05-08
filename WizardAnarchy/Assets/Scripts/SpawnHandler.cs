@@ -4,21 +4,24 @@ using UnityEngine;
 
 public class SpawnHandler : MonoBehaviour
 {
+    public bool isOn;
     public GameObject[] mobs;
+    [Header("Wave Tweaks")]
     public float spawnCd;
     private int eCounter;
+    public int maxWave;
+    private int waveCounter;
     public int maxEntityPerWave;
     private float spawnTimer;
-    private Vector3 spawnArea;
-    private Vector3 size;
-    private Vector3 randomPos;
     private int randomEnemy;
-    public bool isOn;
     //public GameObject spawnEffect;
     [Header("Spawn Markers")]
     public Transform spawn1;
     public Transform spawn2;
     public Transform spawn3;
+    private Vector3 spawnArea;
+    private Vector3 size;
+    private Vector3 randomPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,17 +32,26 @@ public class SpawnHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isOn && eCounter <= maxEntityPerWave)
+        if(isOn)
         {
-            if(spawnTimer <= 0)
+            if(eCounter <= maxEntityPerWave)
             {
-                spawnTimer = spawnCd;
-                SpawnMobFromArray();
-                eCounter++;
+                if(spawnTimer <= 0)
+                {
+                    spawnTimer = spawnCd;
+                    SpawnMobFromArray();
+                    eCounter++;
+                }
+                else
+                {
+                    spawnTimer -= Time.deltaTime;
+                }
             }
-            else
+            else if(eCounter > maxEntityPerWave)
             {
-                spawnTimer -= Time.deltaTime;
+                eCounter = 0;
+                waveCounter++;
+                print("Wave counter: " + waveCounter);
             }
         }
     }
