@@ -19,7 +19,7 @@ public class MageController : MonoBehaviour
     }
     void Start()
     {
-        
+        moveTimer = startMoveTimer;        //don't know how to add the timer atm
     }
 
     void Update()
@@ -43,21 +43,15 @@ public class MageController : MonoBehaviour
         if(Vector2.Distance(target.position, transform.position) > stoppingDistance)
         {
             rb2D.MovePosition(rb2D.position + movePos * moveSpeed * Time.deltaTime);
-        //    moveTimer = startMoveTimer;
         }
         if(Vector2.Distance(target.position, transform.position) < stoppingDistance && Vector2.Distance(target.position, transform.position) > retreatDistance)
         {
             rb2D.position = rb2D.position;
-        //    moveTimer = startMoveTimer;
         }
         else if(Vector2.Distance(target.position, transform.position) < retreatDistance)
         {
             rb2D.MovePosition(rb2D.position + movePos * -moveSpeed * Time.deltaTime);
-        //    moveTimer = startMoveTimer;
         }
-        //else if(moveTimer > 0)
-        //{
-        //    moveTimer -= Time.deltaTime;
-        //}
+        
     }
 }

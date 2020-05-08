@@ -29,6 +29,7 @@ public class CameraController : MonoBehaviour
         MoveCursor();
     }
 
+    //also handle the transition for the camera movement
     private void FollowPlayer()
     {
         if(Vector2.Distance(player.position, mousePos) < deadZone)

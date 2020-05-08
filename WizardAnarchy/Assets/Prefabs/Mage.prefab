@@ -215,9 +215,9 @@ MonoBehaviour:
   rb2D: {fileID: 7184994031072773392}
   target: {fileID: 0}
   moveSpeed: 3
-  stoppingDistance: 4
+  stoppingDistance: 8
   retreatDistance: 3
-  startMoveTimer: 0
+  startMoveTimer: 0.5
 --- !u!114 &1212931910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,5 +247,5 @@ MonoBehaviour:
   firePoint: {fileID: 8678054868465616533}
   bulletPrefab: {fileID: 6674584148870537374, guid: 5353ff172e0c03042b249da54c8e1fcf,
     type: 3}
-  fireCd: 1.2
-  bulletSpeed: 10
+  fireCd: 1
+  bulletSpeed: 13
