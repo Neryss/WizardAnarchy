@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    public float deadZone;
     public GameObject cursor;
     private GameObject cursorInstance;
     public Transform player;
@@ -30,8 +31,15 @@ public class CameraController : MonoBehaviour
 
     private void FollowPlayer()
     {
-        center = (cursorInstance.transform.position - player.position) / 5;
-        transform.position = player.position + center + offset;
+        if(Vector2.Distance(player.position, mousePos) < deadZone)
+        {
+            transform.position = player.position + offset;
+        }
+        else
+        {
+            center = (cursorInstance.transform.position - player.position) / 5;
+            transform.position = player.position + center + offset;
+        }
     }
 
     private void MoveCursor()
