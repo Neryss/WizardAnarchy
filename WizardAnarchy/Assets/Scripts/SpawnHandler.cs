@@ -64,24 +64,24 @@ public class SpawnHandler : MonoBehaviour
     private void WaveSpawn()
     {
         if(eCounter <= maxEntityPerWave)
+        {
+            if(spawnTimer <= 0)
             {
-                if(spawnTimer <= 0)
-                {
-                    spawnTimer = spawnCd;
-                    SpawnMobFromArray();
-                    eCounter++;
-                }
-                else
-                {
-                    spawnTimer -= Time.deltaTime;
-                }
+                spawnTimer = spawnCd;
+                SpawnMobFromArray();
+                eCounter++;
             }
+            else
+            {
+                spawnTimer -= Time.deltaTime;
+            }
+        }
         else if(eCounter > maxEntityPerWave)
         {
             eCounter = 0;
             waveCounter++;
-            print("Wave counter: " + waveCounter);
+            spawnTimer = spawnCd + 7f;      //kinda cool time btw waves(UI display for exemple)
+            print("Wave counter: " + waveCounter + "spawn timer: " + spawnTimer);
         }
-        
     }
 }
