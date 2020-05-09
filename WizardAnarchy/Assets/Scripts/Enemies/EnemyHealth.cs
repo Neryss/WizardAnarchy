@@ -6,10 +6,12 @@ public class EnemyHealth : MonoBehaviour
 {
     public int maxHealth;
     public int health;
+    public ShakeCameraController shakeController;
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
+        shakeController = Camera.main.GetComponent<ShakeCameraController>();
     }
 
     // Update is called once per frame
@@ -17,6 +19,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if(health <= 0)
         {
+            shakeController.StartShake(.1f, .5f);
             Destroy(gameObject);
         }
     }
@@ -24,6 +27,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        shakeController.StartShake(.1f, .1f);
     }
 
     public void KillEntity(GameObject entity)

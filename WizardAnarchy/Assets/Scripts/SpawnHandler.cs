@@ -39,11 +39,20 @@ public class SpawnHandler : MonoBehaviour
     }
 
     //looks really shitty af but it gets the work done for now
-    private void SpawnMobFromArray()
+    //added possibility to change which enemies spawn depending on the wave, also handle some errors
+    //need to implement the change wave system and UI
+    private void SpawnMobFromArray(int min, int max)
     {
-        randomPos = RandomRangeVector3(spawn1.position, spawnArea);
-        randomEnemy = Random.Range(0, mobs.Length);
-        Instantiate(mobs[randomEnemy], randomPos, Quaternion.identity);
+        if(max > mobs.Length || min > mobs.Length)
+        {
+            Debug.LogError("min or max was out of array");
+        }
+        else
+        {
+            randomPos = RandomRangeVector3(spawn1.position, spawnArea);
+            randomEnemy = Random.Range(min, max);
+            Instantiate(mobs[randomEnemy], randomPos, Quaternion.identity);
+        }
         //GameObject tempSpawnEffect = Instantiate(spawnEffect, randomPos, Quaternion.identity);      // I fear no man
         //Invoke("InstantiateMob", 6);                                                                // But this..
         //Destroy(tempSpawnEffect, 6);                                                                // It scares me..
@@ -63,12 +72,13 @@ public class SpawnHandler : MonoBehaviour
 
     private void WaveSpawn()
     {
+        int minMobIndex = 0;
         if(eCounter <= maxEntityPerWave)
         {
             if(spawnTimer <= 0)
             {
                 spawnTimer = spawnCd;
-                SpawnMobFromArray();
+                SpawnMobFromArray(minMobIndex, mobs.Length);
                 eCounter++;
             }
             else
