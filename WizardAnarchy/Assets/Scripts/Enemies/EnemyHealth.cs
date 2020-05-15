@@ -19,7 +19,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if(health <= 0)
         {
-            shakeController.StartShake(.1f, .5f);
+            shakeController.StartShake(.1f, .1f);
             Destroy(gameObject);
         }
     }
@@ -27,7 +27,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        shakeController.StartShake(.1f, .1f);
+        shakeController.StartShake(.1f, .05f);
     }
 
     public void KillEntity(GameObject entity)

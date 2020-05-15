@@ -12,7 +12,7 @@ GameObject:
   m_Layer: 0
   m_Name: Spawn0
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -42,7 +42,7 @@ GameObject:
   m_Layer: 0
   m_Name: Spawn1
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -106,10 +106,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 594ae68083d21004a9a45da18478794b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOn: 1
   mobs:
   - {fileID: 6052725380041121956, guid: 95f53813a859f024e9393bb1d8c5d28c, type: 3}
   - {fileID: 4081530678400337753, guid: fdd235db744af8742aa8506e5a8cec58, type: 3}
   spawnCd: 2
+  maxWave: 0
+  maxEntityPerWave: 5
   spawn1: {fileID: 6136378496154968333}
   spawn2: {fileID: 1985130991867583569}
   spawn3: {fileID: 2947956997010703004}
@@ -125,7 +128,7 @@ GameObject:
   m_Layer: 0
   m_Name: Spawn2
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
