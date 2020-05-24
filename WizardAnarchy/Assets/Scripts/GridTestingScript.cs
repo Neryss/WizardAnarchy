@@ -6,6 +6,6 @@ public class GridTestingScript : MonoBehaviour
 {
     void Start()
     {
-        CustomGrid cGrid = new CustomGrid(4, 4);
+        CustomGrid cGrid = new CustomGrid(13, 42, 3);
     }
 }
