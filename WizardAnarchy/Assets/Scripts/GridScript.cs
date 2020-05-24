@@ -26,6 +26,5 @@ public class CustomGrid {
                 GameObject tile = GameObject.Instantiate(refTile, new Vector2(posX, posY), Quaternion.identity);
             }
         }
-        GameObject.Destroy(refTile);
     }
 }
