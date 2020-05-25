@@ -14,7 +14,7 @@ public class CustomGrid {
         this.cellSize = cellSize;
 
         gridArray = new int[width, height];
-        GameObject refTile = (GameObject)Resources.Load("TestSprite");
+        GameObject refTile = (GameObject)Resources.Load("Room_1");
         for (int x = 0; x < gridArray.GetLength(0); x++)
         {
             for (int y = 0; y < gridArray.GetLength(1); y++)
