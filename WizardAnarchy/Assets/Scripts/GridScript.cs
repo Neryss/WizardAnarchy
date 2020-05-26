@@ -52,5 +52,32 @@ public class CustomGrid {
     {
         int randomNb = Random.Range(0, rooms.Length);
         return(rooms[randomNb]);
+    }   
+}
+
+public class RandomRoomGeneration {
+    private int width;
+    private int height;
+    private float cellSize;
+    private int[,] gridArray;
+
+    public RandomRoomGeneration(int width, int height, float cellSize, GameObject[] rooms)
+    {
+        this.width = width;
+        this.height = height;
+        this.cellSize = cellSize;
+
+        gridArray = new int[width, height];
+
+        Vector2 randomStartPos = new Vector2(Random.Range(0, width), 0);
+
+        for(int x = 0; x < gridArray.GetLength(0); x++)
+        {
+            for(int y = 0; y < gridArray.GetLength(1); y++)
+            {
+                float posX = x * cellSize;
+                float posY = y * -cellSize;
+            }
+        }
     }
 }
