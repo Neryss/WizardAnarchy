@@ -12,9 +12,11 @@ public class RoomGeneration : MonoBehaviour
     
     private void Start() {
         //Spawns the first room at the generator position
-        roomBuffer = Instantiate(RandomRoomSelection(rooms), transform.position, Quaternion.identity);
+        roomBuffer = GameObject.Instantiate(RandomRoomSelection(rooms), transform.position, Quaternion.identity);
 
         roomController = roomBuffer.GetComponent<RoomController>();
+        Debug.Log(roomController.leftDoor);
+        Move();
     }
 
     private GameObject RandomRoomSelection(GameObject[] roomArray)
@@ -32,6 +34,9 @@ public class RoomGeneration : MonoBehaviour
 
     private void Move()
     {
-        if(roomController.GetDoor)
+        if(roomController.GetDoor())
+        {
+            Debug.Log("HasLeft Door");
+        }
     }
 }

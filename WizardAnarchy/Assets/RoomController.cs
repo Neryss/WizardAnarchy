@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomController
+public class RoomController : MonoBehaviour
 {
     public bool leftDoor;
     public bool rightDoor;
@@ -11,6 +11,7 @@ public class RoomController
     public Vector2 size;
     public bool GetDoor()
     {
+        Debug.Log("Entered getDoor");
         if(leftDoor)
         {
             Debug.Log("Left");
