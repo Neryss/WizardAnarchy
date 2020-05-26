@@ -5,9 +5,16 @@ using UnityEngine;
 public class RoomGeneration : MonoBehaviour
 {
     public GameObject[] rooms;
+    public GameObject roomBuffer;
+    public RoomController roomController;
+    private int roomCount;
+    public int maxRoom;
     
-    private void Awake() {
-        InitFirstRoom();
+    private void Start() {
+        //Spawns the first room at the generator position
+        roomBuffer = Instantiate(RandomRoomSelection(rooms), transform.position, Quaternion.identity);
+
+        roomController = roomBuffer.GetComponent<RoomController>();
     }
 
     private GameObject RandomRoomSelection(GameObject[] roomArray)
@@ -18,8 +25,13 @@ public class RoomGeneration : MonoBehaviour
         return(selectedRoom);
     }
 
-    private void InitFirstRoom()
+    private void SpawnRoom()
     {
         Instantiate(RandomRoomSelection(rooms), transform.position, Quaternion.identity);
+    }
+
+    private void Move()
+    {
+        if(roomController.GetDoor)
     }
 }

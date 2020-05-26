@@ -2,15 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomController : MonoBehaviour
+public class RoomController
 {
     public bool leftDoor;
     public bool rightDoor;
     public bool upDoor;
     public bool downDoor;
     public Vector2 size;
-    void Start()
+    public bool GetDoor()
     {
-        
+        if(leftDoor)
+        {
+            Debug.Log("Left");
+            return(leftDoor);
+        }
+        else
+        {
+            return(false);
+        }
     }
 }
