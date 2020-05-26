@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class RoomController : MonoBehaviour
 {
-    private bool leftDoor;
-    private bool rightDoor;
-    private bool upDoor;
-    private bool downDoor;
+    public bool leftDoor;
+    public bool rightDoor;
+    public bool upDoor;
+    public bool downDoor;
+    public Vector2 size;
     void Start()
     {
         
