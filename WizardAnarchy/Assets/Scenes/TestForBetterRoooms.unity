@@ -257,6 +257,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1039736131531565315, guid: 3614d7d30f07b23418ca805e0a019b4e,
+        type: 3}
+      propertyPath: leftDoor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1039736131531565315, guid: 3614d7d30f07b23418ca805e0a019b4e,
+        type: 3}
+      propertyPath: size.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1039736131531565315, guid: 3614d7d30f07b23418ca805e0a019b4e,
+        type: 3}
+      propertyPath: size.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1596058715492219431, guid: 3614d7d30f07b23418ca805e0a019b4e,
         type: 3}
       propertyPath: m_Name
@@ -351,6 +366,8 @@ MonoBehaviour:
   rooms:
   - {fileID: 1596058715492219431, guid: 3614d7d30f07b23418ca805e0a019b4e, type: 3}
   - {fileID: 6904778908821316806, guid: bbc8088933534344189d32d3d0ea6304, type: 3}
+  roomBuffer: {fileID: 0}
+  roomController: {fileID: 0}
   maxRoom: 0
 --- !u!4 &1294538247
 Transform:
