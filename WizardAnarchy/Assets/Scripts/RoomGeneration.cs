@@ -69,7 +69,7 @@ public class RoomGeneration : MonoBehaviour
             if(direction == 1 || direction == 2) //Move LEFT ! 
             {
                 Debug.Log("Left");
-                posX = transform.position.x - 30f;
+                posX = transform.position.x - 29f;
                 posY = transform.position.y;
                 transform.position = new Vector2(posX, posY); 
             }
@@ -89,6 +89,7 @@ public class RoomGeneration : MonoBehaviour
             //Save last coordinates
             if(CheckOverlap())
             {
+                Debug.Log("Overlapping");
                 transform.position = tempPos;
                 direction = Random.Range(1, 7);
                 Move();
