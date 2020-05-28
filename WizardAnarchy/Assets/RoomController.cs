@@ -22,4 +22,28 @@ public class RoomController : MonoBehaviour
             return(false);
         }
     }
+
+    public string WhichDoor()
+    {
+        if(leftDoor)
+        {
+            return("Left");
+        }
+        if(rightDoor)
+        {
+            return("Right");
+        }
+        if(upDoor)
+        {
+            return("Up");
+        }
+        if(downDoor)
+        {
+            return("Down");
+        }
+        else
+        {
+            return(null);
+        } 
+    }
 }

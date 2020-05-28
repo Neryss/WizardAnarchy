@@ -15,7 +15,6 @@ public class RoomGeneration : MonoBehaviour
         roomBuffer = GameObject.Instantiate(RandomRoomSelection(rooms), transform.position, Quaternion.identity);
 
         roomController = roomBuffer.GetComponent<RoomController>();
-        Debug.Log(roomController.leftDoor);
         Move();
     }
 
@@ -34,9 +33,6 @@ public class RoomGeneration : MonoBehaviour
 
     private void Move()
     {
-        if(roomController.GetDoor())
-        {
-            Debug.Log("HasLeft Door");
-        }
+        
     }
 }
