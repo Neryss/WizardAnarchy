@@ -13,6 +13,7 @@ public class RoomGeneration : MonoBehaviour
     private float timeBtwSpawn;
     public float maxTimeBtwSpawn = 0.25f;
     public bool randomRoom;
+    private bool stopGeneration;
     
     private void Start() {
         //Spawns the first room at the generator position
@@ -24,9 +25,9 @@ public class RoomGeneration : MonoBehaviour
     }
 
     private void Update() {
-        roomBuffer = RandomRoomSelection(rooms);
-        if(timeBtwSpawn <= 0)
+        if(timeBtwSpawn <= 0 && stopGeneration == false)
         {
+            roomBuffer = RandomRoomSelection(rooms);
             timeBtwSpawn = maxTimeBtwSpawn;
             Move();
         }
@@ -57,29 +58,37 @@ public class RoomGeneration : MonoBehaviour
 
     private void Move()
     {
-        Debug.Log("Random direction is" + direction);
-        float posX = 0;
-        float posY = 0;
-        if(direction == 1 || direction == 2) //Move LEFT ! 
+        if(roomCount <= maxRoom)
         {
-            posX = transform.position.x - 29f;
-            posY = transform.position.y;
-            transform.position = new Vector2(posX, posY); 
-        }
-        else if(direction == 3 || direction == 4) //Move RIGHT !
-        {
-            posX = transform.position.x + 29f;
-            posY = transform.position.y;
-            transform.position = new Vector2(posX, posY);
-        }
-        else if(direction == 5) //Move DOWN !
-        {
-            posX = transform.position.x;
-            posY = transform.position.y - 19f;
-            transform.position = new Vector2(posX, posY);
-        }
+            Debug.Log("Random direction is" + direction);
+            float posX = 0;
+            float posY = 0;
+            if(direction == 1 || direction == 2) //Move LEFT ! 
+            {
+                posX = transform.position.x - 29f;
+                posY = transform.position.y;
+                transform.position = new Vector2(posX, posY); 
+            }
+            else if(direction == 3 || direction == 4) //Move RIGHT !
+            {
+                posX = transform.position.x + 29f;
+                posY = transform.position.y;
+                transform.position = new Vector2(posX, posY);
+            }
+            else if(direction == 5) //Move DOWN !
+            {
+                posX = transform.position.x;
+                posY = transform.position.y - 19f;
+                transform.position = new Vector2(posX, posY);
+            }
 
-        SpawnRoom();
-        direction = Random.Range(1, 6);
+            roomCount++;
+            SpawnRoom();
+            direction = Random.Range(1, 6);
+        }
+        else
+        {
+            stopGeneration = true;
+        }
     }
 }
