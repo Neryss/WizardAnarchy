@@ -69,12 +69,14 @@ public class RoomGeneration : MonoBehaviour
             if(direction == 1 || direction == 2) //Move LEFT ! 
             {
                 Debug.Log("Left");
+                Debug.Log(transform.position + " Actual position");
                 posX = transform.position.x - 29f;
                 posY = transform.position.y;
                 transform.position = new Vector2(posX, posY); 
             }
             else if(direction == 3 || direction == 4) //Move RIGHT !
             {
+                Debug.Log("Actual right position" + transform.position);
                 posX = transform.position.x + 29f;
                 posY = transform.position.y;
                 transform.position = new Vector2(posX, posY);
