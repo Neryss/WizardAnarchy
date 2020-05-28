@@ -7,6 +7,7 @@ public class RoomGeneration : MonoBehaviour
     public GameObject[] rooms;
     public GameObject roomBuffer;
     public RoomController roomController;
+    private bool [] isVisited;
     private int roomCount;
     public int maxRoom;
     public int direction;
@@ -60,7 +61,7 @@ public class RoomGeneration : MonoBehaviour
     {
         if(roomCount <= maxRoom)
         {
-            Debug.Log("Random direction is" + direction);
+           // Debug.Log("Random direction is" + direction);
             float posX = 0;
             float posY = 0;
             if(direction == 1 || direction == 2) //Move LEFT ! 
@@ -81,7 +82,7 @@ public class RoomGeneration : MonoBehaviour
                 posY = transform.position.y - 19f;
                 transform.position = new Vector2(posX, posY);
             }
-
+            CheckOverlap();
             roomCount++;
             SpawnRoom();
             direction = Random.Range(1, 6);
@@ -89,6 +90,21 @@ public class RoomGeneration : MonoBehaviour
         else
         {
             stopGeneration = true;
+        }
+    }
+
+    private bool CheckOverlap()
+    {
+        Collider2D[] checkBox = Physics2D.OverlapBoxAll(transform.position, new Vector2(29, 19), 0f);
+        if(checkBox.Length > 0)
+        {
+            Debug.Log("Overlapping");
+            return(true);
+        }
+        else
+        {
+            Debug.Log("Not Overlaping");
+            return(false);
         }
     }
 }
