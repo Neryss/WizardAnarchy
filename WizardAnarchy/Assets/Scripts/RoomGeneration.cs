@@ -15,6 +15,7 @@ public class RoomGeneration : MonoBehaviour
     public float maxTimeBtwSpawn = 0.25f;
     public bool randomRoom;
     private bool stopGeneration;
+    private Vector2 tempPos;
     
     private void Start() {
         //Spawns the first room at the generator position
@@ -61,11 +62,13 @@ public class RoomGeneration : MonoBehaviour
     {
         if(roomCount <= maxRoom)
         {
+            tempPos = transform.position;
            // Debug.Log("Random direction is" + direction);
             float posX = 0;
             float posY = 0;
             if(direction == 1 || direction == 2) //Move LEFT ! 
             {
+                Debug.Log("Left");
                 posX = transform.position.x - 29f;
                 posY = transform.position.y;
                 transform.position = new Vector2(posX, posY); 
@@ -86,15 +89,16 @@ public class RoomGeneration : MonoBehaviour
             //Save last coordinates
             if(CheckOverlap())
             {
-                //return to last coordinates and repeat the steps
+                transform.position = tempPos;
+                direction = Random.Range(1, 6);
+                Move();
             }
             else
             {
-                //Instantiate the room
-            }
-            roomCount++;
-            SpawnRoom();
-            direction = Random.Range(1, 6);
+                roomCount++;
+                SpawnRoom();
+                direction = Random.Range(1, 6);
+            }  
         }
         else
         {
