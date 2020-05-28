@@ -82,7 +82,16 @@ public class RoomGeneration : MonoBehaviour
                 posY = transform.position.y - 19f;
                 transform.position = new Vector2(posX, posY);
             }
-            CheckOverlap();
+
+            //Save last coordinates
+            if(CheckOverlap())
+            {
+                //return to last coordinates and repeat the steps
+            }
+            else
+            {
+                //Instantiate the room
+            }
             roomCount++;
             SpawnRoom();
             direction = Random.Range(1, 6);
@@ -98,12 +107,10 @@ public class RoomGeneration : MonoBehaviour
         Collider2D[] checkBox = Physics2D.OverlapBoxAll(transform.position, new Vector2(29, 19), 0f);
         if(checkBox.Length > 0)
         {
-            Debug.Log("Overlapping");
             return(true);
         }
         else
         {
-            Debug.Log("Not Overlaping");
             return(false);
         }
     }
