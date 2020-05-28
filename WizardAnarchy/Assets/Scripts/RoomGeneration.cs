@@ -21,7 +21,7 @@ public class RoomGeneration : MonoBehaviour
         //Spawns the first room at the generator position
         //roomBuffer = GameObject.Instantiate(RandomRoomSelection(rooms), transform.position, Quaternion.identity);
 
-        direction = Random.Range(1, 6);
+        direction = Random.Range(1, 7);
         //I'll take care of the condition for spawning later
         //roomController = roomBuffer.GetComponent<RoomController>();
     }
@@ -69,7 +69,7 @@ public class RoomGeneration : MonoBehaviour
             if(direction == 1 || direction == 2) //Move LEFT ! 
             {
                 Debug.Log("Left");
-                posX = transform.position.x - 29f;
+                posX = transform.position.x - 30f;
                 posY = transform.position.y;
                 transform.position = new Vector2(posX, posY); 
             }
@@ -79,7 +79,7 @@ public class RoomGeneration : MonoBehaviour
                 posY = transform.position.y;
                 transform.position = new Vector2(posX, posY);
             }
-            else if(direction == 5) //Move DOWN !
+            else if(direction == 5 || direction == 6) //Move DOWN !
             {
                 posX = transform.position.x;
                 posY = transform.position.y - 19f;
@@ -90,14 +90,14 @@ public class RoomGeneration : MonoBehaviour
             if(CheckOverlap())
             {
                 transform.position = tempPos;
-                direction = Random.Range(1, 6);
+                direction = Random.Range(1, 7);
                 Move();
             }
             else
             {
                 roomCount++;
                 SpawnRoom();
-                direction = Random.Range(1, 6);
+                direction = Random.Range(1, 7);
             }  
         }
         else
