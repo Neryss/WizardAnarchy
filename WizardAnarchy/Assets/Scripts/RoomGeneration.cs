@@ -7,7 +7,7 @@ public class RoomGeneration : MonoBehaviour
     public GameObject[] rooms;
     private GameObject roomBuffer;
     private RoomController roomController;
-    private bool [] isVisited;
+    private bool[] isVisited;
     private int roomCount;
     public int maxRoom;
     public int minX;
@@ -21,7 +21,8 @@ public class RoomGeneration : MonoBehaviour
     private bool stopGeneration;
     private Vector2 tempPos;
     //Need to incorporate boundaries (Squate shape maybe)
-    private void Start() {
+    private void Start()
+    {
         //Spawns the first room at the generator position
         //roomBuffer = GameObject.Instantiate(RandomRoomSelection(rooms), transform.position, Quaternion.identity);
 
@@ -30,8 +31,9 @@ public class RoomGeneration : MonoBehaviour
         //roomController = roomBuffer.GetComponent<RoomController>();
     }
 
-    private void Update() {
-        if(timeBtwSpawn <= 0 && stopGeneration == false)
+    private void Update()
+    {
+        if (timeBtwSpawn <= 0 && stopGeneration == false)
         {
             roomBuffer = RandomRoomSelection(rooms);
             timeBtwSpawn = maxTimeBtwSpawn;
@@ -47,12 +49,12 @@ public class RoomGeneration : MonoBehaviour
         int i = Random.Range(0, roomArray.Length);
         GameObject selectedRoom = roomArray[i];
 
-        return(selectedRoom);
+        return (selectedRoom);
     }
 
     private void SpawnRoom()
     {
-        if(randomRoom)
+        if (randomRoom)
         {
             Instantiate(RandomRoomSelection(rooms), transform.position, Quaternion.identity);
         }
@@ -64,39 +66,29 @@ public class RoomGeneration : MonoBehaviour
 
     private void Move()
     {
-        if(roomCount <= maxRoom)
+        if (roomCount <= maxRoom)
         {
             tempPos = transform.position;
-           // Debug.Log("Random direction is" + direction);
-            float posX = 0;
-            float posY = 0;
-            if(direction == 1 || direction == 2) //Move LEFT
-            {
-                posX = transform.position.x - 29f;
-                posY = transform.position.y;
-                transform.position = new Vector2(posX, posY); 
-            }
-            else if(direction == 3 || direction == 4) //Move RIGHT
-            {
-                posX = transform.position.x + 29f;
-                posY = transform.position.y;
-                transform.position = new Vector2(posX, posY);
-            }
-            else if(direction == 5 || direction == 6) //Move DOWN
-            {
-                posX = transform.position.x;
-                posY = transform.position.y - 19f;
-                transform.position = new Vector2(posX, posY);
-            }
-
+            float posX = transform.position.x;
+            float posY = transform.position.y;
             //Log the simplified coordinates of the rooms so I can test with the new limiter
             int xCount = (int)posX / 29;
             int yCount = (int)posY / 19;
             Debug.Log(xCount + ", " + yCount);
-
-            if(xCount)
+            if (direction == 1 || direction == 2) //Move LEFT
+            {
+                transform.position = new Vector2(posX - 29f, posY);
+            }
+            else if (direction == 3 || direction == 4) //Move RIGHT
+            {
+                transform.position = new Vector2(posX + 29f, posY);
+            }
+            else if (direction == 5 || direction == 6) //Move DOWN
+            {
+                transform.position = new Vector2(posX, posY - 19f);
+            }
             //Save last coordinates
-            if(CheckOverlap())
+            if (CheckOverlap())
             {
                 transform.position = tempPos;
                 direction = Random.Range(1, 7);
@@ -118,13 +110,13 @@ public class RoomGeneration : MonoBehaviour
     private bool CheckOverlap()
     {
         Collider2D[] checkBox = Physics2D.OverlapBoxAll(transform.position, new Vector2(27f, 18f), 0f);     //needed to tweak it down so it doesn't fuck the left position
-        if(checkBox.Length > 0)
+        if (checkBox.Length > 0)
         {
-            return(true);
+            return (true);
         }
         else
         {
-            return(false);
+            return (false);
         }
     }
 }
