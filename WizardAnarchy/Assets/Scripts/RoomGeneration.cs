@@ -12,8 +12,7 @@ public class RoomGeneration : MonoBehaviour
     public int maxRoom;
     public int minX;
     public int maxX;
-    public int minY;
-    public int maxY;
+    //public int minY;
     private int direction;
     private float timeBtwSpawn;
     public float maxTimeBtwSpawn = 0.25f;
@@ -77,15 +76,29 @@ public class RoomGeneration : MonoBehaviour
             Debug.Log(xCount + ", " + yCount);
             if (direction == 1 || direction == 2) //Move LEFT
             {
-                transform.position = new Vector2(posX - 29f, posY);
+                if(xCount < minX)
+                {
+                    direction = 5;
+                }
+                else
+                {
+                    transform.position = new Vector2(posX - 29f, posY);
+                }    
             }
             else if (direction == 3 || direction == 4) //Move RIGHT
             {
-                transform.position = new Vector2(posX + 29f, posY);
+                if(xCount > maxX)
+                {
+                    direction = 5;
+                }
+                else
+                {
+                    transform.position = new Vector2(posX + 29f, posY);
+                }
             }
             else if (direction == 5 || direction == 6) //Move DOWN
             {
-                transform.position = new Vector2(posX, posY - 19f);
+                transform.position = new Vector2(posX, posY - 19f);     //Can add a boundary for the Y axis, doesn't seem to need that for now;
             }
             //Save last coordinates
             if (CheckOverlap())
