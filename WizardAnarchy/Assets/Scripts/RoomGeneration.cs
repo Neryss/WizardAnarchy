@@ -16,7 +16,7 @@ public class RoomGeneration : MonoBehaviour
     public bool randomRoom;
     private bool stopGeneration;
     private Vector2 tempPos;
-    
+    //Need to incorporate boundaries (Squate shape maybe)
     private void Start() {
         //Spawns the first room at the generator position
         //roomBuffer = GameObject.Instantiate(RandomRoomSelection(rooms), transform.position, Quaternion.identity);
@@ -66,19 +66,19 @@ public class RoomGeneration : MonoBehaviour
            // Debug.Log("Random direction is" + direction);
             float posX = 0;
             float posY = 0;
-            if(direction == 1 || direction == 2) //Move LEFT ! 
+            if(direction == 1 || direction == 2) //Move LEFT
             {
                 posX = transform.position.x - 29f;
                 posY = transform.position.y;
                 transform.position = new Vector2(posX, posY); 
             }
-            else if(direction == 3 || direction == 4) //Move RIGHT !
+            else if(direction == 3 || direction == 4) //Move RIGHT
             {
                 posX = transform.position.x + 29f;
                 posY = transform.position.y;
                 transform.position = new Vector2(posX, posY);
             }
-            else if(direction == 5 || direction == 6) //Move DOWN !
+            else if(direction == 5 || direction == 6) //Move DOWN
             {
                 posX = transform.position.x;
                 posY = transform.position.y - 19f;
@@ -97,7 +97,12 @@ public class RoomGeneration : MonoBehaviour
                 roomCount++;
                 SpawnRoom();
                 direction = Random.Range(1, 7);
-            }  
+            }
+
+            //Log the simplified coordinates of the rooms so I can test with the new limiter
+            int xCount = (int)posX / 29;
+            int yCount = (int)posY / 19;
+            Debug.Log(xCount + ", " + yCount);
         }
         else
         {
