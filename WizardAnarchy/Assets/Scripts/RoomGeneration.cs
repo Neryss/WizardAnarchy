@@ -68,15 +68,12 @@ public class RoomGeneration : MonoBehaviour
             float posY = 0;
             if(direction == 1 || direction == 2) //Move LEFT ! 
             {
-                Debug.Log("Left");
-                Debug.Log(transform.position + " Actual position");
                 posX = transform.position.x - 29f;
                 posY = transform.position.y;
                 transform.position = new Vector2(posX, posY); 
             }
             else if(direction == 3 || direction == 4) //Move RIGHT !
             {
-                Debug.Log("Actual right position" + transform.position);
                 posX = transform.position.x + 29f;
                 posY = transform.position.y;
                 transform.position = new Vector2(posX, posY);
@@ -91,7 +88,6 @@ public class RoomGeneration : MonoBehaviour
             //Save last coordinates
             if(CheckOverlap())
             {
-                Debug.Log("Overlapping");
                 transform.position = tempPos;
                 direction = Random.Range(1, 7);
                 Move();
@@ -111,7 +107,7 @@ public class RoomGeneration : MonoBehaviour
 
     private bool CheckOverlap()
     {
-        Collider2D[] checkBox = Physics2D.OverlapBoxAll(transform.position, new Vector2(29, 19), 0f);
+        Collider2D[] checkBox = Physics2D.OverlapBoxAll(transform.position, new Vector2(27f, 18f), 0f);     //needed to tweak it down so it doesn't fuck the left position
         if(checkBox.Length > 0)
         {
             return(true);
