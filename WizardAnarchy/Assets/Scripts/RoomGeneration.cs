@@ -5,15 +5,19 @@ using UnityEngine;
 public class RoomGeneration : MonoBehaviour
 {
     public GameObject[] rooms;
-    public GameObject roomBuffer;
-    public RoomController roomController;
+    private GameObject roomBuffer;
+    private RoomController roomController;
     private bool [] isVisited;
     private int roomCount;
     public int maxRoom;
-    public int direction;
+    public int minX;
+    public int maxX;
+    public int minY;
+    public int maxY;
+    private int direction;
     private float timeBtwSpawn;
     public float maxTimeBtwSpawn = 0.25f;
-    public bool randomRoom;
+    private bool randomRoom;
     private bool stopGeneration;
     private Vector2 tempPos;
     //Need to incorporate boundaries (Squate shape maybe)
@@ -85,6 +89,12 @@ public class RoomGeneration : MonoBehaviour
                 transform.position = new Vector2(posX, posY);
             }
 
+            //Log the simplified coordinates of the rooms so I can test with the new limiter
+            int xCount = (int)posX / 29;
+            int yCount = (int)posY / 19;
+            Debug.Log(xCount + ", " + yCount);
+
+            if(xCount)
             //Save last coordinates
             if(CheckOverlap())
             {
@@ -98,11 +108,6 @@ public class RoomGeneration : MonoBehaviour
                 SpawnRoom();
                 direction = Random.Range(1, 7);
             }
-
-            //Log the simplified coordinates of the rooms so I can test with the new limiter
-            int xCount = (int)posX / 29;
-            int yCount = (int)posY / 19;
-            Debug.Log(xCount + ", " + yCount);
         }
         else
         {
