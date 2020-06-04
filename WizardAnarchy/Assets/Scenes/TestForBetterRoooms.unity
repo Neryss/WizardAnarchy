@@ -336,6 +336,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96403ed6f4ea4f24c85cbb00a5086d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomArray:
+  - {fileID: 1596058715492219431, guid: 3614d7d30f07b23418ca805e0a019b4e, type: 3}
+  - {fileID: 6904778908821316806, guid: bbc8088933534344189d32d3d0ea6304, type: 3}
 --- !u!4 &2117628234
 Transform:
   m_ObjectHideFlags: 0

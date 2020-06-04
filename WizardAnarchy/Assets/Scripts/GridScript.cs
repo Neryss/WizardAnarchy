@@ -85,7 +85,7 @@ public class CustomGrid {
         {
             return(this.width);
         }
-        else if(axis.Equals("Height"))
+        else if(axis.Equals("height"))
         {
             return(this.height);
         }
