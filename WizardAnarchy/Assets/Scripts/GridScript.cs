@@ -14,7 +14,7 @@ public class CustomGrid {
         this.cellSize = cellSize;
 
         gridArray = new int[width, height];
-        GameObject refTile = (GameObject)Resources.Load("Room_1");
+        //GameObject refTile = (GameObject)Resources.Load("Room_1");
         for(int x = 0; x < gridArray.GetLength(0); x++)
         {
             for(int y = 0; y < gridArray.GetLength(1); y++)
@@ -23,7 +23,7 @@ public class CustomGrid {
                 float posX = x * cellSize;
                 float posY = y * -cellSize;
 
-                GameObject tile = GameObject.Instantiate(refTile, new Vector2(posX, posY), Quaternion.identity);
+                //GameObject tile = GameObject.Instantiate(refTile, new Vector2(posX, posY), Quaternion.identity);
             }
         }
     }
@@ -52,5 +52,4 @@ public class CustomGrid {
     {
         int randomNb = Random.Range(0, rooms.Length);
         return(rooms[randomNb]);
-    }   
-}
+    }

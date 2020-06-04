@@ -17,7 +17,7 @@ public class RoomGeneration : MonoBehaviour
     private float timeBtwSpawn;
     public float maxTimeBtwSpawn = 0.25f;
     private bool randomRoom;
-    private bool stopGeneration;
+    public bool stopGeneration;
     private Vector2 tempPos;
     //Need to incorporate boundaries (Squate shape maybe)
     private void Start()
@@ -73,7 +73,7 @@ public class RoomGeneration : MonoBehaviour
             //Log the simplified coordinates of the rooms so I can test with the new limiter
             int xCount = (int)posX / 29;
             int yCount = (int)posY / 19;
-            Debug.Log(xCount + ", " + yCount);
+             Debug.Log(xCount + ", " + yCount);
             if (direction == 1 || direction == 2) //Move LEFT
             {
                 if(xCount < minX)
