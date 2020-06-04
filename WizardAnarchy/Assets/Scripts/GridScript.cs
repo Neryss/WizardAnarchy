@@ -5,6 +5,9 @@ using UnityEngine;
 public class CustomGrid {
     private int width;
     private int height;
+    //Added size instead of cellsize so I can get rectangular grid
+    private int xSize;
+    private int ySize;
     private float cellSize;
     private int[,] gridArray;
 
@@ -44,6 +47,23 @@ public class CustomGrid {
                 float posY = y * -cellSize;
 
                 GameObject room = GameObject.Instantiate(roomInstance, new Vector2(posX, posY), Quaternion.identity);
+            }
+        }
+    }
+
+    public CustomGrid(int width, int height, int xSize, int ySize) {
+        this.width = width;
+        this.height = height;
+        this.xSize = xSize;
+        this.ySize = ySize;
+
+        gridArray = new int[width, height];
+        for(int x = 0; x < gridArray.GetLength(0); x++)
+        {
+            for(int y = 0; y < gridArray.GetLength(1); y++)
+            {
+                float posX = x * xSize;
+                float posY = y * -ySize;
             }
         }
     }
