@@ -73,4 +73,25 @@ public class CustomGrid {
         int randomNb = Random.Range(0, rooms.Length);
         return(rooms[randomNb]);
     }
+
+    public int[,] GetArray()
+    {
+        return(this.gridArray);
+    }
+
+    public int GetSize(string axis)
+    {
+        if(axis.Equals("width"))
+        {
+            return(this.width);
+        }
+        else if(axis.Equals("Height"))
+        {
+            return(this.height);
+        }
+        else
+        {
+            return(0);
+        }
+    }
 }
