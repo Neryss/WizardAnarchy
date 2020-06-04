@@ -53,3 +53,4 @@ public class CustomGrid {
         int randomNb = Random.Range(0, rooms.Length);
         return(rooms[randomNb]);
     }
+}
