@@ -10,6 +10,7 @@ public class GridRoomGenerator : MonoBehaviour
     private float timeBtwSpawn;
     public float maxTimeBtwSpawn = 0.25f;
     public bool isOn = false;
+    private int i = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,17 +20,17 @@ public class GridRoomGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int i = 0;
         if (isOn)
         {
+            vectorArray = InitGrid(5, 5, 29, 19);
             if (timeBtwSpawn <= 0)
             {
-                timeBtwSpawn = maxTimeBtwSpawn;
-                vectorArray = InitGrid(5, 5, 29, 19);
+                timeBtwSpawn = maxTimeBtwSpawn;   
                 if(i < vectorArray.Length)
                 {
                     Debug.Log("Coordinates are : " + vectorArray[i]);
                     Instantiate(roomArray[0], vectorArray[i], Quaternion.identity);
+                    i++;
                 }
                 else
                 {
@@ -48,10 +49,9 @@ public class GridRoomGenerator : MonoBehaviour
         gridArray = new int[width, height];
         Vector2[] coordArray = new Vector2[gridArray.Length];
         int i = 0;
-
-        for (int x = 0; x < gridArray.GetLength(0); x++)
+        for(int x = 0; x < gridArray.GetLength(0); x++)
         {
-            for (int y = 0; y < gridArray.GetLength(1); y++)
+            for(int y = 0; y < gridArray.GetLength(1); y++)
             {
                 float posX = x * xSize;
                 float posY = y * -ySize;
