@@ -5,7 +5,7 @@ using UnityEngine;
 public class GridRoomGenerator : MonoBehaviour
 {
     private int[,] gridArray;
-    private Vector2[] vectorArray;
+    private Vector2[,] vectorArray;
     public GameObject[] roomArray;
     private float timeBtwSpawn;
     public float maxTimeBtwSpawn = 0.25f;
@@ -22,15 +22,20 @@ public class GridRoomGenerator : MonoBehaviour
     {
         if (isOn)
         {
+            int x = 0;
+            int y = 0;
+
             vectorArray = InitGrid(5, 5, 29, 19);
             if (timeBtwSpawn <= 0)
             {
                 timeBtwSpawn = maxTimeBtwSpawn;   
-                if(i < vectorArray.Length)
+                if(x < vectorArray.GetLength(0))
                 {
-                    Debug.Log("Coordinates are : " + vectorArray[i]);
-                    Instantiate(roomArray[0], vectorArray[i], Quaternion.identity);
-                    i++;
+                    if(y < vectorArray.GetLength(1))
+                    {
+                        Debug.Log(vectorArray[x, y]);
+                    }
+                    Debug.Log(vectorArray[x, y]);
                 }
                 else
                 {
@@ -44,22 +49,26 @@ public class GridRoomGenerator : MonoBehaviour
         }
     }
 
-    private Vector2[] InitGrid(int width, int height, int xSize, int ySize)
+    private Vector2[,] InitGrid(int width, int height, int xSize, int ySize)
     {
+        float posX = 0;
+        float posY = 0;
+
+        int x = 0;
+        int y = 0;
+        Vector2 posVector = Vector2.zero;
         gridArray = new int[width, height];
-        Vector2[] coordArray = new Vector2[gridArray.Length];
-        int i = 0;
-        for(int x = 0; x < gridArray.GetLength(0); x++)
+        Vector2[,] coordArray = new Vector2[gridArray.GetLength(0), gridArray.GetLength(1)];
+        for(x = 0; x < gridArray.GetLength(0); x++)
         {
-            for(int y = 0; y < gridArray.GetLength(1); y++)
+            for(y = 0; y < gridArray.GetLength(1); y++)
             {
-                float posX = x * xSize;
-                float posY = y * -ySize;
-                Vector2 posVector = new Vector2(posX, posY);
-                coordArray[i] = posVector;
-                i++;
+                posY = y * -ySize;
+                posVector = new Vector2(posX, posY);
+                coordArray[x, y] = posVector;
             }
+            coordArray[x, y] = posVector;
         }
-        return (coordArray);
+        return(coordArray);
     }
 }
