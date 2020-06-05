@@ -7,20 +7,40 @@ public class GridRoomGenerator : MonoBehaviour
     private int[,] gridArray;
     private Vector2[] vectorArray;
     public GameObject[] roomArray;
+    private float timeBtwSpawn;
+    public float maxTimeBtwSpawn = 0.25f;
+    public bool isOn = false;
     // Start is called before the first frame update
     void Start()
     {
-        vectorArray = InitGrid(5, 5, 29, 19);
-        for(int i = 0; i < vectorArray.Length; i++)
-        {
-            Debug.Log("Coordinates are : " + vectorArray[i]);
-        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        int i = 0;
+        if (isOn)
+        {
+            if (timeBtwSpawn <= 0)
+            {
+                timeBtwSpawn = maxTimeBtwSpawn;
+                vectorArray = InitGrid(5, 5, 29, 19);
+                if(i < vectorArray.Length)
+                {
+                    Debug.Log("Coordinates are : " + vectorArray[i]);
+                    Instantiate(roomArray[0], vectorArray[i], Quaternion.identity);
+                }
+                else
+                {
+                    isOn = false;
+                }
+            }
+            else
+            {
+                timeBtwSpawn -= Time.deltaTime;
+            }
+        }
     }
 
     private Vector2[] InitGrid(int width, int height, int xSize, int ySize)
@@ -29,9 +49,9 @@ public class GridRoomGenerator : MonoBehaviour
         Vector2[] coordArray = new Vector2[gridArray.Length];
         int i = 0;
 
-        for(int x = 0; x < gridArray.GetLength(0); x++)
+        for (int x = 0; x < gridArray.GetLength(0); x++)
         {
-            for(int y = 0; y < gridArray.GetLength(1); y++)
+            for (int y = 0; y < gridArray.GetLength(1); y++)
             {
                 float posX = x * xSize;
                 float posY = y * -ySize;
@@ -40,6 +60,6 @@ public class GridRoomGenerator : MonoBehaviour
                 i++;
             }
         }
-        return(coordArray);
+        return (coordArray);
     }
 }
