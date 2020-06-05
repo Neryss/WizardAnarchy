@@ -6,7 +6,6 @@ public class RoomGeneration : MonoBehaviour
 {
     public GameObject[] rooms;
     private GameObject roomBuffer;
-    private RoomController roomController;
     private bool[] isVisited;
     private int roomCount;
     public int maxRoom;
