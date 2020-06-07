@@ -9,12 +9,13 @@ public class AnotherGeneration : MonoBehaviour
     public bool stopGeneration = false;
     void Awake()
     {
-
+        
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+        coordArray = InitArray(coordArray, 5, 5, 29, 19);
+        PrintJaggedArray(coordArray);
     }
 
     // Update is called once per frame
@@ -23,16 +24,32 @@ public class AnotherGeneration : MonoBehaviour
         
     }
 
-    private float[][] InitRooms(int width, int height, int xRoomSize, int yRoomSize)
+    private float[][] InitArray(float[][] coordArray, int width, int height, int xRoomSize, int yRoomSize)
     {
-        for(int x = 0; x < width; x++)
+        int x = 0;
+        int y = 0;
+        while(y < height)
         {
-            for(int y = 0; y < height; y++)
+            while(x < width)
             {
-                coordArray[x][y] = y;
+                coordArray[x][y] = x * xRoomSize;
+                x++;
             }
-            coordArray[x][y] = x;
+            x = 0;
+            coordArray[x][y] = y * -yRoomSize;
+            y++;
         }
         return(coordArray);
+    }
+
+    private void PrintJaggedArray(float[][] jaggedArray)
+    {
+        for(int x = 0; x < jaggedArray[x].Length; x++)
+        {
+            for(int y = 0; y < jaggedArray[x][y]; y++)
+            {
+                Debug.Log(jaggedArray[x][y]);
+            }
+        }
     }
 }
