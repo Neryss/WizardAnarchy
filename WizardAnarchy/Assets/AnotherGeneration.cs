@@ -7,6 +7,10 @@ public class AnotherGeneration : MonoBehaviour
     public GameObject[] rooms;
     public float[][] coordArray;
     public bool stopGeneration = false;
+    public int gridWitdh;
+    public int gridHeight;
+    public int roomSizeX;
+    public int roomSizeY;
     void Awake()
     {
         
@@ -14,8 +18,13 @@ public class AnotherGeneration : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        coordArray = InitArray(coordArray, 5, 5, 29, 19);
-        PrintJaggedArray(coordArray);
+        coordArray = InitArray(coordArray, gridWitdh, gridHeight, roomSizeX, roomSizeY);
+        if(coordArray == null)
+        {
+            Debug.Log("CoordArray is empty");
+        }
+        else
+            PrintJaggedArray(coordArray);
     }
 
     // Update is called once per frame
@@ -26,30 +35,32 @@ public class AnotherGeneration : MonoBehaviour
 
     private float[][] InitArray(float[][] coordArray, int width, int height, int xRoomSize, int yRoomSize)
     {
-        int x = 0;
-        int y = 0;
-        while(y < height)
+        float[][] tempArray = new float[height][];
+        for(int y = 0; y < height; y++)
         {
-            while(x < width)
-            {
-                coordArray[x][y] = x * xRoomSize;
-                x++;
-            }
-            x = 0;
-            coordArray[x][y] = y * -yRoomSize;
-            y++;
+            tempArray[y] = new float[width];
         }
-        return(coordArray);
+        return(tempArray);
     }
 
     private void PrintJaggedArray(float[][] jaggedArray)
     {
-        for(int x = 0; x < jaggedArray[x].Length; x++)
+        for(int i = 0; i < 5; i++)
         {
-            for(int y = 0; y < jaggedArray[x][y]; y++)
+            for(int j = 0; j < 5; j++)
             {
-                Debug.Log(jaggedArray[x][y]);
+                Debug.Log(jaggedArray[i][j]);
             }
         }
+    }
+
+    private int[] GetJaggedArrayLength(float[][] jaggedArray)
+    {
+        int[] length = 0;
+        for(int i = 0; i < jaggedArray[i].Length)
+        {
+            length[i] = jaggedArray[i].Length;
+        }
+        return(length);
     }
 }
