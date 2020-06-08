@@ -56,8 +56,8 @@ public class AnotherGeneration : MonoBehaviour
 
     private int[] GetJaggedArrayLength(float[][] jaggedArray)
     {
-        int[] length = 0;
-        for(int i = 0; i < jaggedArray[i].Length)
+        int[] length = null;
+        for(int i = 0; i < jaggedArray[i].Length; i++)
         {
             length[i] = jaggedArray[i].Length;
         }
