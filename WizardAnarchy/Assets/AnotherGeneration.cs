@@ -13,54 +13,59 @@ public class AnotherGeneration : MonoBehaviour
     public int roomSizeY;
     void Awake()
     {
-        
+
     }
     // Start is called before the first frame update
     void Start()
     {
         coordArray = InitArray(coordArray, gridWitdh, gridHeight, roomSizeX, roomSizeY);
-        if(coordArray == null)
+        if (coordArray == null)
         {
             Debug.Log("CoordArray is empty");
         }
         else
-            PrintJaggedArray(coordArray);
+        {
+            Debug.Log(GetJaggedArrayLength(coordArray));
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private float[][] InitArray(float[][] coordArray, int width, int height, int xRoomSize, int yRoomSize)
     {
         float[][] tempArray = new float[height][];
-        for(int y = 0; y < height; y++)
+        for (int y = 0; y < height; y++)
         {
             tempArray[y] = new float[width];
         }
-        return(tempArray);
+        return (tempArray);
     }
 
     private void PrintJaggedArray(float[][] jaggedArray)
     {
-        for(int i = 0; i < 5; i++)
-        {
-            for(int j = 0; j < 5; j++)
-            {
-                Debug.Log(jaggedArray[i][j]);
-            }
-        }
+
     }
 
     private int[] GetJaggedArrayLength(float[][] jaggedArray)
     {
-        int[] length = null;
-        for(int i = 0; i < jaggedArray[i].Length; i++)
+        int[] length = new int[jaggedArray.Length];
+        if (jaggedArray != null)
         {
-            length[i] = jaggedArray[i].Length;
+            for (int i = 0; i < jaggedArray[i].Length; i++)
+            {
+                //length[i] = jaggedArray[i].Length;
+                Debug.Log("length of column " + i + ": " + jaggedArray[i].Length);
+            }
+            return (length);
         }
-        return(length);
+        else
+        {
+            Debug.Log("Array was null");
+            return(null);
+        }
     }
 }

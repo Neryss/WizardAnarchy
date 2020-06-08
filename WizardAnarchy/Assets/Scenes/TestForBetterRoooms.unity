@@ -370,6 +370,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rooms: []
   stopGeneration: 0
+  gridWitdh: 5
+  gridHeight: 5
+  roomSizeX: 29
+  roomSizeY: 19
 --- !u!1001 &813868637063349926
 PrefabInstance:
   m_ObjectHideFlags: 0
