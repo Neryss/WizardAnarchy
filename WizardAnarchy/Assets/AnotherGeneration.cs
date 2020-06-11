@@ -18,7 +18,7 @@ public class AnotherGeneration : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        coordArray = InitArray(gridWitdh, gridHeight, roomSizeX, roomSizeY);
+        coordArray = InitArray(gridWitdh, gridHeight);
         PrintJaggedArray(coordArray, gridWitdh, gridHeight);
         if (coordArray == null)
         {
@@ -36,7 +36,7 @@ public class AnotherGeneration : MonoBehaviour
 
     }
 
-    private float[][] InitArray(int width, int height, int xRoomSize, int yRoomSize)
+    private float[][] InitArray(int width, int height)
     {
         float[][] tempArray;
         //allocate the needed nb of rows
@@ -47,6 +47,17 @@ public class AnotherGeneration : MonoBehaviour
             tempArray[i] = new float[width];
         }
         return (tempArray);
+    }
+
+    private void PopulateJaggedArray(float[][] jaggedArray, int roomSizeX, int roomSizeY)
+    {
+        for(int i = 0; i < this.gridHeight; i++)
+        {
+            for(int j = 0; j < this.gridWitdh; j++)
+            {
+                
+            }
+        }
     }
 
     private void PrintJaggedArray(float[][] jaggedArray, int width, int height)
