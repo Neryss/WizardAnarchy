@@ -35,19 +35,29 @@ public class AnotherGeneration : MonoBehaviour
 
     }
 
-    private float[][] InitArray(float[][] coordArray, int width, int height, int xRoomSize, int yRoomSize)
+    private float[][] InitArray(int width, int height, int xRoomSize, int yRoomSize)
     {
-        float[][] tempArray = new float[height][];
-        for (int y = 0; y < height; y++)
+        float[][] tempArray;
+        //allocate the needed nb of rows
+        tempArray = new float[height][];
+        //then loop through the rows and allocate the needed number of cols for each one
+        for(int i = 0; i < height; i++)
         {
-            tempArray[y] = new float[width];
+            tempArray[i] = new float[width];
         }
         return (tempArray);
     }
 
     private void PrintJaggedArray(float[][] jaggedArray)
     {
+        for(int i < )
+    }
 
+    private int[] GetColLength(float[][] jaggedArray)
+    {
+        int[] length;
+
+        return(length);
     }
 
     private int[] GetJaggedArrayLength(float[][] jaggedArray)
