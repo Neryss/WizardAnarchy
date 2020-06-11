@@ -55,7 +55,7 @@ public class AnotherGeneration : MonoBehaviour
         {
             for(int j = 0; j < this.gridWitdh; j++)
             {
-                jaggedArray[i][j] = i;
+                
             }
         }
     }
