@@ -18,7 +18,8 @@ public class AnotherGeneration : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        coordArray = InitArray(coordArray, gridWitdh, gridHeight, roomSizeX, roomSizeY);
+        coordArray = InitArray(gridWitdh, gridHeight, roomSizeX, roomSizeY);
+        PrintJaggedArray(coordArray, gridWitdh, gridHeight);
         if (coordArray == null)
         {
             Debug.Log("CoordArray is empty");
@@ -48,16 +49,15 @@ public class AnotherGeneration : MonoBehaviour
         return (tempArray);
     }
 
-    private void PrintJaggedArray(float[][] jaggedArray)
+    private void PrintJaggedArray(float[][] jaggedArray, int width, int height)
     {
-        for(int i < )
-    }
-
-    private int[] GetColLength(float[][] jaggedArray)
-    {
-        int[] length;
-
-        return(length);
+        for(int i = 0; i < height; i++)
+        {
+            for(int j = 0; j < width; j++)
+            {
+                Debug.Log("Coords are: " + jaggedArray[i][j]);
+            }
+        }
     }
 
     private int[] GetJaggedArrayLength(float[][] jaggedArray)
