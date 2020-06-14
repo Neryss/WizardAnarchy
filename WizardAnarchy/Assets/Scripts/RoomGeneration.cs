@@ -11,6 +11,8 @@ public class RoomGeneration : MonoBehaviour
     public int maxRoom;
     public int minX;
     public int maxX;
+    public int xMoveAmount;
+    public int yMoveAmount;
     //public int minY;
     private int direction;
     private float timeBtwSpawn;
@@ -21,6 +23,7 @@ public class RoomGeneration : MonoBehaviour
     //Need to incorporate boundaries (Squate shape maybe)
     private void Start()
     {
+
         //Spawns the first room at the generator position
         //roomBuffer = GameObject.Instantiate(RandomRoomSelection(rooms), transform.position, Quaternion.identity);
 
@@ -33,7 +36,6 @@ public class RoomGeneration : MonoBehaviour
     {
         if (timeBtwSpawn <= 0 && stopGeneration == false)
         {
-            roomBuffer = RandomRoomSelection(rooms);
             timeBtwSpawn = maxTimeBtwSpawn;
             Move();
         }
@@ -116,6 +118,14 @@ public class RoomGeneration : MonoBehaviour
         else
         {
             stopGeneration = true;
+        }
+    }
+
+    private void MoveInStart()
+    {
+        while(roomCount < maxRoom)
+        {
+
         }
     }
 
